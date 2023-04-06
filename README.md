@@ -1,3 +1,5 @@
+# 正在迁移到易用AI，进行中...
+
 # bobplugin-google-translate
 
 > 这是一个 [Bob](https://bobtranslate.com/) 的 google 翻译插件
