@@ -7,7 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 
-const pkg = 'google-translate.bobplugin';
+const pkg = 'google-translate.aiplugin';
 
 export default {
   input: path.join(__dirname, './src/main.ts'),
@@ -19,6 +19,7 @@ export default {
   plugins: [
     copy({
       targets: [
+        { src: './src/icon.png', dest: `dist/${pkg}/` },
         { src: './src/info.json', dest: `dist/${pkg}/` },
         { src: './src/libs', dest: `dist/${pkg}/` },
       ],
@@ -38,6 +39,7 @@ export default {
       sourceMap: false, // default
       minify: process.env.NODE_ENV === 'production',
       target: 'es6', // default, or 'es20XX', 'esnext',
+      // format: 'cjs',
       // Add extra loaders
       loaders: {
         // Add .json files support

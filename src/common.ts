@@ -37,11 +37,12 @@ async function detectLang(text: string, options: IQueryOption = {}) {
     oe: 'UTF-8',
   };
 
+  Bob.api.$log.info("detectLang res 0:");
   const [err, res] = await Bob.util.asyncTo<Bob.HttpResponse>(
     Bob.api.$http.post({
       url: `https://${getBaseApi()}/translate_a/single?${querystring.stringify(query)}`,
       timeout,
-      header: { 'User-Agent': userAgent },
+      // header: { 'User-Agent': userAgent },
       body: { q: text },
     }),
   );

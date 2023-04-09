@@ -5,7 +5,7 @@ import { IQueryOption, detectLang, tts } from './common';
 import { noStandardToStandard } from './lang';
 import { getBaseApi } from './common';
 
-var resultCache = new Bob.CacheResult();
+// var resultCache = new Bob.CacheResult();
 // 接口请求频率过快导致错误, 隔三分钟再请求
 var API_LIMIT_TIME: number = 1000 * 60 * 3;
 var apiLimitErrorTime = 0;
@@ -23,13 +23,13 @@ async function _translate(text: string, options: IQueryOption = {}) {
   if (apiLimitErrorTime + API_LIMIT_TIME > Date.now()) throw Bob.util.error('api', '请求频率过快, 请稍后再试');
   apiLimitErrorTime = 0;
   const { from = 'auto', to = 'auto', cache = 'enable', timeout = 10000 } = options;
-  const cacheKey = `${text}${from}${to}${getBaseApi()}`;
-  if (cache === 'enable') {
-    const _cacheData = resultCache.get(cacheKey);
-    if (_cacheData) return _cacheData;
-  } else {
-    resultCache.clear();
-  }
+  // const cacheKey = `${text}${from}${to}${getBaseApi()}`;
+  // if (cache === 'enable') {
+  //   const _cacheData = resultCache.get(cacheKey);
+  //   if (_cacheData) return _cacheData;
+  // } else {
+  //   resultCache.clear();
+  // }
 
   const lang = await detectLang(text, options);
   const data = {
@@ -51,7 +51,7 @@ async function _translate(text: string, options: IQueryOption = {}) {
       url: `https://${getBaseApi()}/translate_a/single?${querystring.stringify(data)}`,
       timeout,
       header: {
-        'User-Agent': userAgent,
+        // 'User-Agent': userAgent,
       },
       body: { q: text },
     }),
@@ -64,7 +64,7 @@ async function _translate(text: string, options: IQueryOption = {}) {
   if (err) throw Bob.util.error('network', '接口网络错误', err);
 
   const resData = res?.data;
-  Bob.api.$log.info(JSON.stringify(res));
+  Bob.api.$log.info(JSON.stringify(resData));
   if (!Bob.util.isArray(resData)) throw Bob.util.error('api', '接口返回数据出错', res);
 
   const result: Bob.Result = { from: noStandardToStandard(from), to: noStandardToStandard(to), toParagraphs: [] };
@@ -98,9 +98,9 @@ async function _translate(text: string, options: IQueryOption = {}) {
     throw Bob.util.error('api', '接口返回数据解析错误出错', error);
   }
 
-  if (cache === 'enable') {
-    resultCache.set(cacheKey, result);
-  }
+  // if (cache === 'enable') {
+  //   resultCache.set(cacheKey, result);
+  // }
   // raw
   // result.raw = resData;
   return result;

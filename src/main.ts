@@ -29,11 +29,11 @@ function translate(query: Bob.TranslateQuery, completion: Bob.Completion) {
   res
     .then((result) => completion({ result }))
     .catch((error) => {
-      Bob.api.$log.error(JSON.stringify(error));
+      Bob.api.$log.error("translate res error:" + JSON.stringify(error));
       if (error?.type) return completion({ error });
       completion({ error: Bob.util.error('api', '插件出错', error) });
     });
 }
 
-global.supportLanguages = supportLanguages;
-global.translate = translate;
+exports.supportLanguages = supportLanguages;
+exports.translate = translate;

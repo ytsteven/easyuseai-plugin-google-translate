@@ -128,7 +128,7 @@ async function getRpcParams(rpcids: Rpc, opts: IQueryOption) {
   throw Bob.util.error('api', '秘钥获取失败', res);
 }
 
-var resultCache = new Bob.CacheResult();
+// var resultCache = new Bob.CacheResult();
 // 接口请求频率过快导致错误, 隔三分钟再请求
 var API_LIMIT_TIME: number = 1000 * 60 * 3;
 var apiLimitErrorTime = 0;
@@ -141,13 +141,13 @@ async function _translate(text: string, opts: IQueryOption = {}) {
   const baseApi = `https://${getBaseApi()}`;
   if (apiLimitErrorTime + API_LIMIT_TIME > Date.now()) throw Bob.util.error('api', '请求频率过快, 请稍后再试');
   apiLimitErrorTime = 0;
-  const cacheKey = `${text}${from}${to}${getBaseApi()}`;
-  if (cache === 'enable') {
-    const _cacheData = resultCache.get(cacheKey);
-    if (_cacheData) return _cacheData;
-  } else {
-    resultCache.clear();
-  }
+  // const cacheKey = `${text}${from}${to}${getBaseApi()}`;
+  // if (cache === 'enable') {
+  //   const _cacheData = resultCache.get(cacheKey);
+  //   if (_cacheData) return _cacheData;
+  // } else {
+  //   resultCache.clear();
+  // }
   const params = await getRpcParams(Rpc.translate, opts);
   const url = `${baseApi}/_/TranslateWebserverUi/data/batchexecute?${querystring.stringify(params)}`;
   const [err, res] = await Bob.util.asyncTo<Bob.HttpResponse>(
@@ -196,9 +196,9 @@ async function _translate(text: string, opts: IQueryOption = {}) {
     throw Bob.util.error('api', '接口返回数据解析错误出错', error);
   }
 
-  if (cache === 'enable') {
-    resultCache.set(cacheKey, result);
-  }
+  // if (cache === 'enable') {
+  //   resultCache.set(cacheKey, result);
+  // }
   return result;
 }
 

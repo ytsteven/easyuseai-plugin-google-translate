@@ -4,10 +4,10 @@ const initAppcast = require('./init-appcast');
 const plugInfo = require('../src/info.json');
 
 const pkgName = 'google-translate';
-const pkg = path.resolve(__dirname, `../release/${pkgName}-v${plugInfo.version}.bobplugin`);
+const pkg = path.resolve(__dirname, `../release/${pkgName}-v${plugInfo.version}.aiplugin`);
 
 const zip = new AdmZip();
-zip.addLocalFolder(path.resolve(__dirname, `../dist/${pkgName}.bobplugin`));
+zip.addLocalFolder(path.resolve(__dirname, `../dist/${pkgName}.aiplugin`));
 zip.writeZip(pkg);
 
 initAppcast();

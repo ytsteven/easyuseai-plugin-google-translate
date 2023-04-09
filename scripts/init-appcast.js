@@ -9,7 +9,7 @@ const githubRelease = `https://github.roojay.com/roojay520/bobplugin-google-tran
 
 module.exports = () => {
   const pkgName = 'google-translate';
-  const pkgPath = path.resolve(__dirname, `../release/${pkgName}-v${plugInfo.version}.bobplugin`);
+  const pkgPath = path.resolve(__dirname, `../release/${pkgName}-v${plugInfo.version}.aiplugin`);
   const appcastPath = path.join(__dirname, '../src/appcast.json');
 
   const fileBuffer = fs.readFileSync(pkgPath);
@@ -21,7 +21,7 @@ module.exports = () => {
     version: package.version,
     desc: 'https://github.com/roojay520/bobplugin-google-translate/blob/master/CHANGELOG.md',
     sha256: hex,
-    url: `${githubRelease}/v${package.version}/google-translate-v${package.version}.bobplugin`,
+    url: `${githubRelease}/v${package.version}/google-translate-v${package.version}.aiplugin`,
     minBobVersion: plugInfo.minBobVersion,
   };
 
