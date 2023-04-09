@@ -35,5 +35,5 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: 'release/*.bobplugin'
+          artifacts: 'release/*.aiplugin'
           token: ${{ secrets.GITHUB_TOKEN }}
