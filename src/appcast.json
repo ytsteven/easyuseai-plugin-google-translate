@@ -3,9 +3,9 @@
   "versions": [
     {
       "version": "0.6.1",
-      "desc": "https://github.com/roojay520/bobplugin-google-translate/blob/master/CHANGELOG.md",
-      "sha256": "5ed2c4e6fc65fbd211530d4a7e5c0768619650956846d5deb8b7ef730c931f2a",
-      "url": "https://github.roojay.com/roojay520/bobplugin-google-translate/releases/download/v0.6.1/google-translate-v0.6.1.aiplugin"
+      "desc": "https://github.com/ytsteven/easyuseai-plugin-google-translate/blob/master/CHANGELOG.md",
+      "sha256": "f84c035100c67647a42e7bbb4e02c8b89a892d8b2064341e7b32a9f58aec995d",
+      "url": "https://github.com/ytsteven/easyuseai-plugin-google-translate/releases/v0.6.1/google-translate-v0.6.1.aiplugin"
     },
     {
       "version": "0.6.0",
