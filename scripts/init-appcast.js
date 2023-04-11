@@ -5,7 +5,7 @@ const package = require('../package.json');
 const plugInfo = require('../src/info.json');
 const plugAppcast = require('../src/appcast.json');
 
-const githubRelease = `https://github.roojay.com/roojay520/bobplugin-google-translate/releases/download`;
+const githubRelease = `https://github.com/ytsteven/easyuseai-plugin-google-translate/releases`;
 
 module.exports = () => {
   const pkgName = 'google-translate';
@@ -19,7 +19,7 @@ module.exports = () => {
 
   const version = {
     version: package.version,
-    desc: 'https://github.com/roojay520/bobplugin-google-translate/blob/master/CHANGELOG.md',
+    desc: 'https://github.com/ytsteven/easyuseai-plugin-google-translate/blob/master/CHANGELOG.md',
     sha256: hex,
     url: `${githubRelease}/v${package.version}/google-translate-v${package.version}.aiplugin`,
     minBobVersion: plugInfo.minBobVersion,
