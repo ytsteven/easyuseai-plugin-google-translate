@@ -2,6 +2,12 @@
   "identifier": "com.roojay.easyuseai-plugin-google-translate",
   "versions": [
     {
+      "version": "0.0.6",
+      "desc": "https://github.com/ytsteven/easyuseai-plugin-google-translate/blob/master/CHANGELOG.md",
+      "sha256": "27e87feb6291ef9e23af1ba782440859d89ad8bfd8077d30c787c8faf5f835ca",
+      "url": "https://github.com/ytsteven/easyuseai-plugin-google-translate/releases/v0.0.6/google-translate-v0.0.6.aiplugin"
+    },
+    {
       "version": "0.6.1",
       "desc": "https://github.com/ytsteven/easyuseai-plugin-google-translate/blob/master/CHANGELOG.md",
       "sha256": "f84c035100c67647a42e7bbb4e02c8b89a892d8b2064341e7b32a9f58aec995d",
